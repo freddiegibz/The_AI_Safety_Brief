@@ -493,17 +493,6 @@
             border: 1px solid var(--border);
         }
 
-        .testimonial-card .objection {
-            background: var(--primary);
-            color: white;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
         .testimonial-card blockquote {
             font-size: 1.05rem;
             font-style: italic;
@@ -613,7 +602,112 @@
 
         .price-box .btn-primary {
             width: 100%;
-            margin-top: 10px;
+            margin-top: 20px;
+        }
+
+        /* Order Bump */
+        .order-bump {
+            margin-top: 24px;
+            padding: 20px;
+            background: #fffdf5;
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
+        }
+
+        .bump-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+
+        .bump-checkbox input {
+            display: none;
+        }
+
+        .bump-checkbox .checkmark {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .bump-checkbox input:checked + .checkmark {
+            background: var(--primary);
+        }
+
+        .bump-checkbox input:checked + .checkmark::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        .bump-checkbox .bump-label {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .bump-content {
+            padding-left: 34px;
+        }
+
+        .bump-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .bump-header h4 {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .bump-price {
+            font-weight: 700;
+            color: var(--success);
+            font-size: 1.1rem;
+        }
+
+        .bump-content > p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .bump-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bump-features li {
+            font-size: 0.9rem;
+            color: var(--text);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .bump-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
         }
 
         .guarantee-box {
@@ -830,6 +924,29 @@
             .problem, .solution, .inside, .testimonials, .final-cta, .faq {
                 padding: 70px 0;
             }
+
+            .order-bump {
+                padding: 16px;
+            }
+
+            .bump-content {
+                padding-left: 0;
+                margin-top: 12px;
+            }
+
+            .bump-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .bump-header h4 {
+                font-size: 0.95rem;
+            }
+
+            .bump-features li {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -1000,8 +1117,8 @@
                         <p>"When a call sounds urgent and emotional, that's precisely when you slow down. Here's the verification phrase that protects you..."</p>
                     </div>
                     <div class="preview-card">
-                        <h4>Quick Reference Card Included</h4>
-                        <p>Print-ready checklist you can keep by your computer for quick reference.</p>
+                        <h4>Chapter 9: Your Personal Safety System</h4>
+                        <p>"A simple daily routine that takes seconds but protects you from the most common threats..."</p>
                     </div>
                 </div>
             </div>
@@ -1071,7 +1188,6 @@
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <div class="objection">"Is this written in plain language?"</div>
                     <blockquote>"Refreshingly straightforward. No jargon, no condescension — just clear information presented professionally. I appreciated being treated as an intelligent adult who simply needed updated knowledge."</blockquote>
                     <div class="author">
                         <div class="avatar">MH</div>
@@ -1082,7 +1198,6 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="objection">"Will I learn anything new?"</div>
                     <blockquote>"I've been online since dial-up and can usually spot trouble. But the section on voice cloning was genuinely new to me. Our family now has a verification phrase for urgent calls. Practical and worth knowing."</blockquote>
                     <div class="author">
                         <div class="avatar">RB</div>
@@ -1093,8 +1208,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="objection">"Is this just more to remember?"</div>
-                    <blockquote>"The opposite, actually. Having clear criteria simplified my decision-making. The reference card by my desk means I don't have to hold it all in my head. Less cognitive load, not more."</blockquote>
+                    <blockquote>"Having clear criteria simplified my decision-making. The checklist by my desk means I don't have to hold it all in my head. Less to remember, not more."</blockquote>
                     <div class="author">
                         <div class="avatar">SA</div>
                         <div class="author-info">
@@ -1127,21 +1241,38 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        Print-ready quick reference card
-                    </li>
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Free updates as threats evolve
-                    </li>
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
                         Works on any device
                     </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Print-friendly format
+                    </li>
                 </ul>
+
+                <!-- Order Bump -->
+                <div class="order-bump">
+                    <label class="bump-checkbox">
+                        <input type="checkbox" id="order-bump-check">
+                        <span class="checkmark"></span>
+                        <span class="bump-label">Yes, add this to my order</span>
+                    </label>
+                    <div class="bump-content">
+                        <div class="bump-header">
+                            <h4>AI Safety Quick-Reference Checklist</h4>
+                            <span class="bump-price">+£15</span>
+                        </div>
+                        <p>Make staying safe even easier — a one-page guide with ready-to-use steps for everyday online situations.</p>
+                        <ul class="bump-features">
+                            <li>"If this happens, do this" scenarios for email, messaging, and links</li>
+                            <li>Quick verification rules for everyday AI-driven content</li>
+                            <li>Daily digital hygiene shortcuts</li>
+                            <li>Wallet-sized or prints for easy reference</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <a href="#" class="btn-primary">Get Instant Access Now</a>
                 <div class="guarantee-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1167,7 +1298,7 @@
                 </div>
                 <div class="faq-item">
                     <h3>How long is it?</h3>
-                    <p>The guide is purposefully concise — around 45 pages of practical content. No filler. Most readers complete it in one or two sittings, then use the reference card daily.</p>
+                    <p>The guide is purposefully concise — around 45 pages of practical content. No filler. Most readers complete it in one or two sittings.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Will this become outdated quickly?</h3>
@@ -1183,7 +1314,7 @@
                 </div>
                 <div class="faq-item">
                     <h3>Can I share this with my family?</h3>
-                    <p>Absolutely. Many readers share the quick reference card with partners and adult children. Having everyone on the same page — especially the family verification code — makes everyone safer.</p>
+                    <p>Absolutely. Many readers discuss the key points with partners and adult children. Having everyone on the same page — especially the family verification phrase — makes everyone safer.</p>
                 </div>
             </div>
         </div>
