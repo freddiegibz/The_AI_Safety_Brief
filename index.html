@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Safety Brief | Stay Safe Online in the AI Era</title>
+    <meta name="description" content="Practical protection for a rapidly changing online world. A clear, comprehensive guide to recognising and handling AI-powered threats online.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3d59;
+            --primary-light: #2c5282;
+            --accent: #c9a227;
+            --accent-hover: #b8922a;
+            --cream: #fdfbf7;
+            --cream-dark: #f5f0e8;
+            --text: #2d3748;
+            --text-light: #4a5568;
+            --success: #48825d;
+            --border: #e2ddd5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 19px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--cream);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            padding: 16px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .header-cta {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+
+        .header-cta .mobile-text {
+            display: none;
+        }
+
+        .header-cta .desktop-text {
+            display: inline;
+        }
+
+        .header-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 80px 0 100px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--cream);
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-subhead {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding: 14px 18px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .social-proof:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .social-proof .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .social-proof .stars svg {
+            color: var(--accent);
+        }
+
+        .social-proof .proof-text {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .social-proof .proof-text strong {
+            color: var(--accent);
+        }
+
+        .social-proof .arrow {
+            margin-left: auto;
+            opacity: 0.7;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 20px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-align: center;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(201, 162, 39, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 162, 39, 0.5);
+        }
+
+        .btn-primary .price {
+            font-size: 1.3rem;
+        }
+
+        .hero-guarantee {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .hero-guarantee svg {
+            flex-shrink: 0;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .book-mockup {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+            transform: rotate(2deg);
+        }
+
+        .book-cover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 4px;
+            padding: 40px 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .book-cover h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .book-cover p {
+            color: var(--accent);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .book-cover .icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 36px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .problem-card .icon {
+            width: 64px;
+            height: 64px;
+            background: var(--cream-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .solution-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+        }
+
+        .solution-text > p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .solution-list {
+            list-style: none;
+        }
+
+        .solution-list li {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .solution-list .check {
+            width: 28px;
+            height: 28px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .solution-list .check svg {
+            color: white;
+        }
+
+        .solution-list strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .solution-list span {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .solution-visual {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 50px;
+        }
+
+        .preview-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .preview-card h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .preview-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* What's Inside */
+        .inside {
+            padding: 100px 0;
+            background: var(--cream-dark);
+        }
+
+        .inside-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .inside-item {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            border: 1px solid var(--border);
+        }
+
+        .inside-item .number {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .inside-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .inside-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            padding: 36px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-card .objection {
+            background: var(--primary);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .testimonial-card .avatar {
+            width: 52px;
+            height: 52px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-card .author-info strong {
+            display: block;
+            color: var(--primary);
+        }
+
+        .testimonial-card .author-info span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            color: white;
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta > .container > p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .price-box {
+            background: white;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .price-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .price-box .price-display {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        .price-box .price-display span {
+            font-size: 1.5rem;
+            vertical-align: top;
+        }
+
+        .price-box .includes {
+            text-align: left;
+            margin: 30px 0;
+            padding: 24px;
+            background: var(--cream);
+            border-radius: 8px;
+        }
+
+        .price-box .includes li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .price-box .includes li:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-box .includes svg {
+            color: var(--success);
+            flex-shrink: 0;
+        }
+
+        .price-box .btn-primary {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .guarantee-box {
+            margin-top: 24px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 8px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .guarantee-box svg {
+            flex-shrink: 0;
+            color: var(--success);
+        }
+
+        .guarantee-box p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .guarantee-box strong {
+            color: var(--primary);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 28px 32px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        footer .logo {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero-visual {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .inside-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 17px;
+            }
+
+            .logo {
+                font-size: 1.15rem;
+            }
+
+            .header-cta {
+                padding: 10px 14px;
+                font-size: 0.85rem;
+            }
+
+            .header-cta .mobile-text {
+                display: inline;
+            }
+
+            .header-cta .desktop-text {
+                display: none;
+            }
+
+            .hero {
+                padding: 28px 0 60px;
+            }
+
+            .hero::after {
+                height: 40px;
+            }
+
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 5px 10px;
+                margin-bottom: 12px;
+            }
+
+            .hero h1 {
+                font-size: 1.55rem;
+                margin-bottom: 12px;
+                line-height: 1.25;
+            }
+
+            .hero-subhead {
+                font-size: 1rem;
+                margin-bottom: 16px;
+                line-height: 1.55;
+            }
+
+            .hero-subhead br {
+                display: block;
+                content: "";
+                margin-top: 10px;
+            }
+
+            .hero-cta-group {
+                gap: 10px;
+            }
+
+            .btn-primary {
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+
+            .btn-primary .price {
+                font-size: 1.05rem;
+            }
+
+            .hero-guarantee {
+                font-size: 0.8rem;
+            }
+
+            .hero-guarantee svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .social-proof {
+                padding: 10px 12px;
+                gap: 8px;
+                margin-top: 10px;
+            }
+
+            .social-proof .proof-text {
+                font-size: 0.8rem;
+            }
+
+            .social-proof .stars svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .section-header h2,
+            .solution-text h2,
+            .final-cta h2 {
+                font-size: 1.7rem;
+            }
+
+            .problem, .solution, .inside, .testimonials, .final-cta, .faq {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">The AI Safety <span>Brief</span></div>
+                <a href="#order" class="header-cta"><span class="desktop-text">Get the Guide — £29</span><span class="mobile-text">£29</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">Practical protection for a rapidly changing online world</div>
+                    <h1>Use the Internet as You Already Do — <span>With More Confidence</span></h1>
+                    <p class="hero-subhead">AI has changed the online landscape quickly. The old rules still apply — but there are new ones worth knowing.<br><br>This practical guide gives you updated knowledge to recognise modern threats and continue doing what you enjoy online, confidently.</p>
+                    <div class="hero-cta-group">
+                        <a href="#order" class="btn-primary">Get Instant Access — <span class="price">£29</span></a>
+                        <div class="hero-guarantee">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                            <span>30-day money-back guarantee</span>
+                        </div>
+                        <a href="#testimonials" class="social-proof">
+                            <div class="stars">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                            <span class="proof-text"><strong>4.9/5</strong> from 200+ readers</span>
+                            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="book-mockup">
+                        <div class="book-cover">
+                            <div class="icon">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h3>The AI Safety Brief</h3>
+                            <p>Practical Protection for the AI Era</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Landscape Has Shifted</h2>
+                <p>AI has transformed how online threats operate. The tactics that were easy to spot five years ago have evolved — and the guidance available hasn't kept pace.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3>AI-generated content looks authentic</h3>
+                    <p>Emails, voices, and websites created by AI are increasingly sophisticated — designed to bypass traditional warning signs.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3>Scattered, inconsistent guidance</h3>
+                    <p>Information is fragmented across dozens of sources. A consolidated, practical reference has been missing.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>New verification methods needed</h3>
+                    <p>The checks that worked before aren't enough anymore. Updated techniques are essential for today's environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>Updated Knowledge for a Changed Landscape</h2>
+                    <p>The AI Safety Brief is a practical framework for the current environment. Clear criteria for what to look for, what to ignore, and how to verify anything that warrants a second look.</p>
+                    <ul class="solution-list">
+                        <li>
+                            <div class="check">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Spot AI-generated content instantly</strong>
+                                <span>Learn the telltale signs that reveal fake emails, messages, and websites.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Verify requests in 30 seconds or less</strong>
+                                <span>Simple checks you can do before responding to anything that feels "off."</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Know what to safely ignore</strong>
+                                <span>Not every warning is worth your attention. Reduce noise, reduce stress.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Continue doing what you already do</strong>
+                                <span>Browse, shop, and communicate online with the same ease — now with updated awareness.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="solution-visual">
+                    <div class="preview-card">
+                        <h4>Chapter 3: The 5-Second Email Test</h4>
+                        <p>"Before you click anything, run through these three quick checks. If any one fails, you know exactly what to do next..."</p>
+                    </div>
+                    <div class="preview-card">
+                        <h4>Chapter 7: Voice Clone Red Flags</h4>
+                        <p>"When a call sounds urgent and emotional, that's precisely when you slow down. Here's the verification phrase that protects you..."</p>
+                    </div>
+                    <div class="preview-card">
+                        <h4>Quick Reference Card Included</h4>
+                        <p>Print-ready checklist you can keep by your computer for instant peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Inside -->
+    <section class="inside">
+        <div class="container">
+            <div class="section-header">
+                <h2>What You'll Learn Inside</h2>
+                <p>Practical guidance organised by real situations you actually encounter — not theoretical threats.</p>
+            </div>
+            <div class="inside-grid">
+                <div class="inside-item">
+                    <div class="number">1</div>
+                    <div>
+                        <h3>The New Landscape</h3>
+                        <p>What's actually changed, what the real risks are (and aren't), and why your instincts still matter.</p>
+                    </div>
+                </div>
+                <div class="inside-item">
+                    <div class="number">2</div>
+                    <div>
+                        <h3>Email & Message Safety</h3>
+                        <p>How to spot AI-crafted phishing, fake invoices, and impersonation attempts before you engage.</p>
+                    </div>
+                </div>
+                <div class="inside-item">
+                    <div class="number">3</div>
+                    <div>
+                        <h3>Phone & Voice Protection</h3>
+                        <p>Defending against cloned voices and urgent "family emergency" scams with simple verification steps.</p>
+                    </div>
+                </div>
+                <div class="inside-item">
+                    <div class="number">4</div>
+                    <div>
+                        <h3>Shopping & Banking Online</h3>
+                        <p>Safe practices for transactions, spotting fake websites, and protecting your financial information.</p>
+                    </div>
+                </div>
+                <div class="inside-item">
+                    <div class="number">5</div>
+                    <div>
+                        <h3>Social Media Savvy</h3>
+                        <p>Identifying fake profiles, AI-generated misinformation, and manipulation tactics.</p>
+                    </div>
+                </div>
+                <div class="inside-item">
+                    <div class="number">6</div>
+                    <div>
+                        <h3>Your Personal Safety System</h3>
+                        <p>Building simple habits that protect you automatically — without adding complexity to your life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Readers Are Saying</h2>
+                <p>Perspectives from readers who asked similar questions before purchasing.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="objection">"Is this written in plain language?"</div>
+                    <blockquote>"Refreshingly straightforward. No jargon, no condescension — just clear information presented professionally. I appreciated being treated as an intelligent adult who simply needed updated knowledge."</blockquote>
+                    <div class="author">
+                        <div class="avatar">MH</div>
+                        <div class="author-info">
+                            <strong>Margaret H.</strong>
+                            <span>Retired Teacher, 67</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="objection">"Will I learn anything new?"</div>
+                    <blockquote>"I've been online since dial-up and can usually spot trouble. But the section on voice cloning was genuinely new to me. Our family now has a verification phrase for urgent calls. Practical and worth knowing."</blockquote>
+                    <div class="author">
+                        <div class="avatar">RB</div>
+                        <div class="author-info">
+                            <strong>Robert B.</strong>
+                            <span>Former Accountant, 71</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="objection">"Is this just more to remember?"</div>
+                    <blockquote>"The opposite, actually. Having clear criteria simplified my decision-making. The reference card by my desk means I don't have to hold it all in my head. Less cognitive load, not more."</blockquote>
+                    <div class="author">
+                        <div class="avatar">SA</div>
+                        <div class="author-info">
+                            <strong>Susan A.</strong>
+                            <span>Former Administrator, 63</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="order">
+        <div class="container">
+            <h2>Stay Current with Confidence</h2>
+            <p>A single, comprehensive reference. One-time purchase with lifetime updates. No subscriptions, no ongoing costs.</p>
+            <div class="price-box">
+                <h3>The AI Safety Brief</h3>
+                <div class="price-display"><span>£</span>29</div>
+                <p style="color: var(--text-light); margin-top: -10px;">One-time payment. Instant access.</p>
+                <ul class="includes">
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Complete digital guide (PDF)
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Print-ready quick reference card
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Free updates as threats evolve
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Works on any device
+                    </li>
+                </ul>
+                <a href="#" class="btn-primary">Get Instant Access Now</a>
+                <div class="guarantee-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                    <p><strong>30-Day Money-Back Guarantee.</strong> If the guide doesn't meet your expectations, email us for a full refund. No complications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Common Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>What format is the guide?</h3>
+                    <p>You'll receive a PDF that works on any device — computer, tablet, or phone. You can also print it if you prefer reading on paper. The quick reference card is designed to be printed and kept handy.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long is it?</h3>
+                    <p>The guide is purposefully concise — around 45 pages of practical content. No filler. Most readers complete it in one or two sittings, then use the reference card daily.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Will this become outdated quickly?</h3>
+                    <p>The principles are timeless, but threats do evolve. That's why you'll receive free updates whenever we add new guidance. Your purchase includes all future versions.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is this just for computers?</h3>
+                    <p>No. The guide covers phone calls, text messages, emails, websites, and social media — anywhere AI-powered tricks might appear. It's comprehensive without being overwhelming.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>I'm already careful online. Is this still useful?</h3>
+                    <p>Experienced users often find the most value in the newer threat categories — voice cloning, AI-generated phishing, and deepfakes — which operate differently from traditional scams. The guide builds on existing good habits with updated verification methods.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I share this with my family?</h3>
+                    <p>Absolutely. Many readers share the quick reference card with partners and adult children. Having everyone on the same page — especially the family verification code — makes everyone safer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">The AI Safety <span>Brief</span></div>
+            <p style="margin-bottom: 16px;">Practical protection for a rapidly changing online world.</p>
+            <p>Questions? <a href="mailto:hello@aisafetybrief.com">hello@aisafetybrief.com</a></p>
+            <p style="margin-top: 30px; font-size: 0.85rem;">© 2026 The AI Safety Brief. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
