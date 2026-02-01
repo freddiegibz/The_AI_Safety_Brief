@@ -605,44 +605,146 @@
             margin-top: 20px;
         }
 
-        /* Order Bump */
-        .order-bump {
-            margin-top: 24px;
-            padding: 20px;
-            background: #fffdf5;
-            border: 2px dashed var(--accent);
-            border-radius: 8px;
-        }
-
-        .bump-checkbox {
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
             align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            margin-bottom: 16px;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            padding: 20px;
         }
 
-        .bump-checkbox input {
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            max-width: 480px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: var(--text-light);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--cream);
+        }
+
+        .modal-header {
+            padding: 28px 28px 0;
+        }
+
+        .modal-header h3 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .modal-body {
+            padding: 24px 28px 28px;
+        }
+
+        .modal-product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .modal-product h4 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 0 0 4px;
+        }
+
+        .modal-product p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .modal-bump {
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
+            padding: 20px;
+            background: #fffdf5;
+            margin-bottom: 24px;
+        }
+
+        .modal-bump-checkbox {
+            display: flex;
+            gap: 14px;
+            cursor: pointer;
+            align-items: flex-start;
+        }
+
+        .modal-bump-checkbox input {
             display: none;
         }
 
-        .bump-checkbox .checkmark {
-            width: 22px;
-            height: 22px;
+        .modal-bump-checkbox .checkmark {
+            width: 24px;
+            height: 24px;
             border: 2px solid var(--primary);
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            margin-top: 2px;
             transition: all 0.2s;
         }
 
-        .bump-checkbox input:checked + .checkmark {
+        .modal-bump-checkbox input:checked + .checkmark {
             background: var(--primary);
         }
 
-        .bump-checkbox input:checked + .checkmark::after {
+        .modal-bump-checkbox input:checked + .checkmark::after {
             content: '';
             width: 6px;
             height: 10px;
@@ -652,62 +754,118 @@
             margin-bottom: 2px;
         }
 
-        .bump-checkbox .bump-label {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 0.95rem;
+        .bump-details {
+            flex: 1;
         }
 
-        .bump-content {
-            padding-left: 34px;
-        }
-
-        .bump-header {
+        .bump-title-row {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
             align-items: center;
+            gap: 6px;
             margin-bottom: 8px;
         }
 
-        .bump-header h4 {
-            font-family: 'Merriweather', serif;
-            font-size: 1rem;
-            color: var(--primary);
-            margin: 0;
+        .bump-add {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        .bump-price {
-            font-weight: 700;
-            color: var(--success);
+        .bump-title-row strong {
+            color: var(--primary);
+        }
+
+        .bump-price-tag {
+            background: var(--success);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .bump-details p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .modal-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-top: 1px solid var(--border);
+            margin-bottom: 20px;
             font-size: 1.1rem;
         }
 
-        .bump-content > p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 12px;
-        }
-
-        .bump-features {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .bump-features li {
-            font-size: 0.9rem;
-            color: var(--text);
-            padding-left: 20px;
-            position: relative;
-            margin-bottom: 6px;
-        }
-
-        .bump-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
+        .total-amount {
+            font-size: 1.5rem;
             font-weight: 700;
+            color: var(--primary);
+        }
+
+        .btn-checkout {
+            display: block;
+            width: 100%;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 18px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(201, 162, 39, 0.4);
+        }
+
+        .btn-checkout:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .modal-security {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .modal-security svg {
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 600px) {
+            .modal-header {
+                padding: 24px 20px 0;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .modal-product {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .bump-title-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .modal-security {
+                flex-direction: column;
+                text-align: center;
+                gap: 6px;
+            }
         }
 
         .guarantee-box {
@@ -924,29 +1082,6 @@
             .problem, .solution, .inside, .testimonials, .final-cta, .faq {
                 padding: 70px 0;
             }
-
-            .order-bump {
-                padding: 16px;
-            }
-
-            .bump-content {
-                padding-left: 0;
-                margin-top: 12px;
-            }
-
-            .bump-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-            }
-
-            .bump-header h4 {
-                font-size: 0.95rem;
-            }
-
-            .bump-features li {
-                font-size: 0.85rem;
-            }
         }
     </style>
 </head>
@@ -957,7 +1092,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">The AI Safety <span>Brief</span></div>
-                <a href="#order" class="header-cta"><span class="desktop-text">Get the Guide — £29</span><span class="mobile-text">£29</span></a>
+                <a href="#" onclick="openModal(); return false;" class="header-cta"><span class="desktop-text">Get the Guide — £29</span><span class="mobile-text">£29</span></a>
             </div>
         </div>
     </header>
@@ -971,7 +1106,7 @@
                     <h1>The Internet Has Changed, <span>This Helps You Keep Using It Your Way</span></h1>
                     <p class="hero-subhead">AI has changed the online landscape quickly. The old rules still apply — but there are new ones worth knowing.<br><br>This practical guide shows you how to recognise modern threats and avoid them — so you can continue doing what you enjoy online, safely.</p>
                     <div class="hero-cta-group">
-                        <a href="#order" class="btn-primary">Get Instant Access — <span class="price">£29</span></a>
+                        <a href="#" onclick="openModal(); return false;" class="btn-primary">Get Instant Access — <span class="price">£29</span></a>
                         <div class="hero-guarantee">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -1225,7 +1360,7 @@
     <section class="final-cta" id="order">
         <div class="container">
             <h2>Stay Protected in a Changing Landscape</h2>
-            <p>A single, comprehensive reference. One-time purchase with lifetime updates. No subscriptions, no ongoing costs.</p>
+            <p>A single, comprehensive reference. One-time purchase. No subscriptions, no ongoing costs.</p>
             <div class="price-box">
                 <h3>The AI Safety Brief</h3>
                 <div class="price-display"><span>£</span>29</div>
@@ -1251,29 +1386,7 @@
                     </li>
                 </ul>
 
-                <!-- Order Bump -->
-                <div class="order-bump">
-                    <label class="bump-checkbox">
-                        <input type="checkbox" id="order-bump-check">
-                        <span class="checkmark"></span>
-                        <span class="bump-label">Yes, add this to my order</span>
-                    </label>
-                    <div class="bump-content">
-                        <div class="bump-header">
-                            <h4>AI Safety Quick-Reference Checklist</h4>
-                            <span class="bump-price">+£15</span>
-                        </div>
-                        <p>Make staying safe even easier — a one-page guide with ready-to-use steps for everyday online situations.</p>
-                        <ul class="bump-features">
-                            <li>"If this happens, do this" scenarios for email, messaging, and links</li>
-                            <li>Quick verification rules for everyday AI-driven content</li>
-                            <li>Daily digital hygiene shortcuts</li>
-                            <li>Wallet-sized or prints for easy reference</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <a href="#" class="btn-primary">Get Instant Access Now</a>
+                <a href="#" onclick="openModal(); return false;" class="btn-primary">Get Instant Access Now</a>
                 <div class="guarantee-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -1329,6 +1442,111 @@
             <p style="margin-top: 30px; font-size: 0.85rem;">© 2026 The AI Safety Brief. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3>Complete Your Order</h3>
+            </div>
+            <div class="modal-body">
+                <!-- Main Product -->
+                <div class="modal-product">
+                    <div class="product-info">
+                        <h4>The AI Safety Brief</h4>
+                        <p>Complete digital guide (PDF)</p>
+                    </div>
+                    <div class="product-price">£29</div>
+                </div>
+
+                <!-- Order Bump -->
+                <div class="modal-bump">
+                    <label class="modal-bump-checkbox">
+                        <input type="checkbox" id="modal-bump-check" onchange="updateCheckoutButton()">
+                        <span class="checkmark"></span>
+                        <div class="bump-details">
+                            <div class="bump-title-row">
+                                <span class="bump-add">Add:</span>
+                                <strong>AI Safety Quick-Reference Checklist</strong>
+                                <span class="bump-price-tag">+£15</span>
+                            </div>
+                            <p>One-page "if this happens, do this" guide for everyday situations. Wallet-sized or prints for easy reference.</p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Total -->
+                <div class="modal-total">
+                    <span>Total:</span>
+                    <span class="total-amount" id="modal-total">£29</span>
+                </div>
+
+                <!-- Checkout Buttons (hidden, shown based on selection) -->
+                <div class="checkout-buttons">
+                    <!-- WITHOUT order bump - £29 -->
+                    <a href="YOUR_STRIPE_LINK_WITHOUT_BUMP" class="btn-checkout" id="checkout-without-bump">
+                        Proceed to Secure Checkout
+                    </a>
+                    <!-- WITH order bump - £44 -->
+                    <a href="YOUR_STRIPE_LINK_WITH_BUMP" class="btn-checkout" id="checkout-with-bump" style="display: none;">
+                        Proceed to Secure Checkout
+                    </a>
+                </div>
+
+                <div class="modal-security">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    <span>Secure payment via Stripe. 30-day money-back guarantee.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('checkout-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('checkout-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateCheckoutButton() {
+            const bumpChecked = document.getElementById('modal-bump-check').checked;
+            const totalEl = document.getElementById('modal-total');
+            const withoutBumpBtn = document.getElementById('checkout-without-bump');
+            const withBumpBtn = document.getElementById('checkout-with-bump');
+
+            if (bumpChecked) {
+                totalEl.textContent = '£44';
+                withoutBumpBtn.style.display = 'none';
+                withBumpBtn.style.display = 'block';
+            } else {
+                totalEl.textContent = '£29';
+                withoutBumpBtn.style.display = 'block';
+                withBumpBtn.style.display = 'none';
+            }
+        }
+
+        // Close modal on overlay click
+        document.getElementById('checkout-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
