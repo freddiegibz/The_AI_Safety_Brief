@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1216244347126516');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1216244347126516&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The AI Safety Brief | Stay Safe Online in the AI Era</title>
@@ -1488,11 +1506,11 @@
                 <!-- Checkout Buttons (hidden, shown based on selection) -->
                 <div class="checkout-buttons">
                     <!-- WITHOUT order bump - £29 -->
-                    <a href="https://buy.stripe.com/28E4gydrdboE7iwgSubZe0c" class="btn-checkout" id="checkout-without-bump">
+                    <a href="https://buy.stripe.com/28E4gydrdboE7iwgSubZe0c" class="btn-checkout" id="checkout-without-bump" onclick="trackPurchase(29.00)">
                         Proceed to Secure Checkout
                     </a>
                     <!-- WITH order bump - £44 -->
-                    <a href="https://buy.stripe.com/eVqeVc1IveAQeKYcCebZe0d" class="btn-checkout" id="checkout-with-bump" style="display: none;">
+                    <a href="https://buy.stripe.com/eVqeVc1IveAQeKYcCebZe0d" class="btn-checkout" id="checkout-with-bump" style="display: none;" onclick="trackPurchase(44.00)">
                         Proceed to Secure Checkout
                     </a>
                 </div>
@@ -1509,9 +1527,28 @@
     </div>
 
     <script>
+        // Track ViewContent on page load
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'ViewContent', {
+                content_name: 'AI Safety Brief',
+                content_category: 'Digital Guide',
+                value: 29.00,
+                currency: 'GBP'
+            });
+        }
+
         function openModal() {
             document.getElementById('checkout-modal').classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // Track AddToCart when modal opens
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_name: 'AI Safety Brief',
+                    value: 29.00,
+                    currency: 'GBP'
+                });
+            }
         }
 
         function closeModal() {
@@ -1549,6 +1586,17 @@
                 closeModal();
             }
         });
+
+        // Track InitiateCheckout event when redirecting to Stripe
+        function trackInitiateCheckout(value) {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'AI Safety Brief',
+                    value: value,
+                    currency: 'GBP'
+                });
+            }
+        }
     </script>
 
 </body>
