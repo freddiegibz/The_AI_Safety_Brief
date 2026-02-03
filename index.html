@@ -1528,10 +1528,7 @@
 
     <script>
         function openModal() {
-            document.getElementById('checkout-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Track AddToCart when modal opens
+            // Track AddToCart on CTA click
             if (typeof fbq === 'function') {
                 fbq('track', 'AddToCart', {
                     content_name: 'AI Safety Brief',
@@ -1539,6 +1536,14 @@
                     currency: 'GBP'
                 });
             }
+            
+            // Redirect directly to Stripe (no modal)
+            window.location.href = 'https://buy.stripe.com/28E4gydrdboE7iwgSubZe0c';
+            
+            /* TEMPORARILY DISABLED - Modal code
+            document.getElementById('checkout-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            */
         }
 
         function closeModal() {
