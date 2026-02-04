@@ -94,6 +94,23 @@
             color: var(--accent);
         }
 
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-contact {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .header-contact:hover {
+            color: var(--accent);
+        }
+
         .header-cta {
             background: var(--accent);
             color: var(--primary);
@@ -1012,6 +1029,14 @@
                 font-size: 1.15rem;
             }
 
+            .header-nav {
+                gap: 12px;
+            }
+
+            .header-contact {
+                font-size: 0.85rem;
+            }
+
             .header-cta {
                 padding: 10px 14px;
                 font-size: 0.85rem;
@@ -1113,7 +1138,10 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">The AI Safety <span>Brief</span></div>
-                <a href="javascript:void(0)" onclick="openModal()" class="header-cta"><span class="desktop-text">Get the Guide — £29</span><span class="mobile-text">£29</span></a>
+                <div class="header-nav">
+                    <a href="mailto:alfiebailey2265@gmail.com" class="header-contact">Contact</a>
+                    <a href="javascript:void(0)" onclick="openModal()" class="header-cta"><span class="desktop-text">Get the Guide — £29</span><span class="mobile-text">£29</span></a>
+                </div>
             </div>
         </div>
     </header>
