@@ -351,6 +351,28 @@
             color: var(--text-light);
         }
 
+        .problem-narrative {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .problem-narrative p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .problem-narrative h3 {
+            font-size: 1.3rem;
+            margin: 48px 0 16px;
+            color: var(--primary);
+        }
+
+        .problem-narrative h3:first-of-type {
+            margin-top: 32px;
+        }
+
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -404,48 +426,46 @@
             margin-bottom: 24px;
         }
 
+        .solution-text h3 {
+            font-size: 1.4rem;
+            margin: 32px 0 16px;
+            color: var(--primary);
+        }
+
         .solution-text > p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 32px;
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 40px 0;
         }
 
         .solution-list {
             list-style: none;
+            padding-left: 0;
+            margin-bottom: 24px;
         }
 
         .solution-list li {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 20px;
-            align-items: flex-start;
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        .solution-list .check {
-            width: 28px;
-            height: 28px;
-            background: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .solution-list .check svg {
-            color: white;
-        }
-
-        .solution-list strong {
-            display: block;
+        .solution-list li::before {
+            content: '•';
+            position: absolute;
+            left: 8px;
             color: var(--primary);
-            margin-bottom: 4px;
-        }
-
-        .solution-list span {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            font-weight: 700;
         }
 
         .solution-visual {
@@ -454,24 +474,83 @@
             padding: 50px;
         }
 
-        .preview-card {
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
+        .solution-visual h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 16px;
         }
 
-        .preview-card h4 {
+        .solution-visual > p {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .situation-item {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .situation-item:last-of-type {
+            border-bottom: none;
+            margin-bottom: 32px;
+            padding-bottom: 0;
+        }
+
+        .situation-item h4 {
             font-family: 'Merriweather', serif;
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .situation-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .situation-summary {
+            background: white;
+            padding: 28px;
+            border-radius: 8px;
+            margin-top: 32px;
+        }
+
+        .situation-summary p {
+            font-size: 0.95rem;
+            color: var(--text);
             margin-bottom: 12px;
         }
 
-        .preview-card p {
+        .situation-summary p:last-child {
+            margin-bottom: 0;
+            margin-top: 16px;
+        }
+
+        .situation-summary ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .situation-summary li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 8px;
             font-size: 0.95rem;
             color: var(--text-light);
+        }
+
+        .situation-summary li::before {
+            content: '•';
+            position: absolute;
+            left: 6px;
+            color: var(--primary);
+            font-weight: 700;
         }
 
         /* What's Inside */
@@ -480,43 +559,80 @@
             background: var(--cream-dark);
         }
 
-        .inside-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+        .guide-practice {
+            max-width: 720px;
+            margin: 0 auto;
         }
 
-        .inside-item {
-            background: white;
-            padding: 32px;
-            border-radius: 12px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            border: 1px solid var(--border);
+        .guide-practice > p {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.7;
         }
 
-        .inside-item .number {
-            width: 44px;
-            height: 44px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .practice-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 24px 0 32px;
+        }
+
+        .practice-list li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .practice-list li::before {
+            content: '•';
+            position: absolute;
+            left: 8px;
+            color: var(--primary);
             font-weight: 700;
-            flex-shrink: 0;
         }
 
-        .inside-item h3 {
-            font-size: 1.1rem;
+        .practice-approach {
+            background: white;
+            padding: 28px;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+
+        .practice-approach p {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .practice-approach ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .practice-approach li {
+            padding-left: 24px;
+            position: relative;
             margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-light);
         }
 
-        .inside-item p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .practice-approach li::before {
+            content: '•';
+            position: absolute;
+            left: 6px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .practice-conclusion {
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 24px;
         }
 
         /* Testimonials */
@@ -972,6 +1088,12 @@
             font-size: 1rem;
         }
 
+        .faq-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
         /* Footer */
         footer {
             background: var(--primary);
@@ -1212,42 +1334,22 @@
     <section class="problem">
         <div class="container">
             <div class="section-header">
-                <h2>The Landscape Has Shifted</h2>
-                <p>AI has transformed how online threats operate. The tactics that were easy to spot five years ago have evolved — and the guidance available hasn't kept pace.</p>
+                <h2>Why staying safe feels harder than it used to</h2>
             </div>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
-                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                            <line x1="12" y1="9" x2="12" y2="13"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                    </div>
-                    <h3>AI-generated content looks authentic</h3>
-                    <p>Emails, voices, and websites created by AI are increasingly sophisticated — designed to bypass traditional warning signs.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                    </div>
-                    <h3>Scattered, inconsistent guidance</h3>
-                    <p>Information is fragmented across dozens of sources. A consolidated, practical reference has been missing.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                        </svg>
-                    </div>
-                    <h3>New verification methods needed</h3>
-                    <p>The checks that worked before aren't enough anymore. Updated techniques are essential for today's environment.</p>
-                </div>
+            
+            <div class="problem-narrative">
+                <p>Most people are doing the same things they've always done online. Checking emails, answering calls, shopping, banking, keeping in touch.</p>
+                
+                <h3>What's changed isn't you</h3>
+                <p>What's changed is how convincing some messages now look.</p>
+                <p>Some emails feel genuine until they aren't. Some calls sound urgent and familiar. Some websites look right at first glance.</p>
+                
+                <h3>The usual warning signs are quieter</h3>
+                <p>That doesn't mean people are becoming careless. It means the usual warning signs are quieter than they used to be.</p>
+                <p>As a result, sensible people find themselves hesitating more often — wondering what to trust and what to ignore.</p>
+                
+                <h3>This guide removes that uncertainty</h3>
+                <p>So everyday online tasks feel straightforward again.</p>
             </div>
         </div>
     </section>
@@ -1257,123 +1359,122 @@
         <div class="container">
             <div class="solution-content">
                 <div class="solution-text">
-                    <h2>Know What to Look For. Know What to Avoid.</h2>
-                    <p>The AI Safety Brief is a practical framework for the current environment. Clear criteria for what to look for, what to ignore, and how to verify anything that warrants a second look.</p>
+                    <h2>What this guide covers — and what it doesn't</h2>
+                    
+                    <p>This guide is for everyday situations you already deal with, such as:</p>
                     <ul class="solution-list">
-                        <li>
-                            <div class="check">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>Spot AI-generated content instantly</strong>
-                                <span>Learn the telltale signs that reveal fake emails, messages, and websites.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>Verify requests in 30 seconds or less</strong>
-                                <span>Simple checks you can do before responding to anything that feels "off."</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>Know what to safely ignore</strong>
-                                <span>Not every warning is worth your attention. Reduce noise, reduce stress.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>Continue doing what you already do</strong>
-                                <span>Browse, shop, and communicate online with the same ease — now with updated awareness.</span>
-                            </div>
-                        </li>
+                        <li>Emails and messages that don't look quite right</li>
+                        <li>Phone calls that feel urgent or unexpected</li>
+                        <li>Websites asking for personal or payment details</li>
+                        <li>Requests that create pressure to act quickly</li>
                     </ul>
+                    
+                    <p>It focuses on clear signs that help you decide:</p>
+                    <ul class="solution-list">
+                        <li>what can be safely ignored</li>
+                        <li>what deserves a closer look</li>
+                        <li>what to do next, without guesswork</li>
+                    </ul>
+                    
+                    <hr class="section-divider">
+                    
+                    <p><strong>This guide does not require you to:</strong></p>
+                    <ul class="solution-list">
+                        <li>Learn new technology</li>
+                        <li>Download apps or tools</li>
+                        <li>Stay constantly alert</li>
+                        <li>Change how you normally use the internet</li>
+                    </ul>
+                    
+                    <p>You don't need to become more suspicious.<br>You just need clearer reference points.</p>
+                    
+                    <hr class="section-divider">
+                    
+                    <h3>How it's designed to be used</h3>
+                    
+                    <p>Most people read the guide once, then keep it nearby.</p>
+                    
+                    <p>You can:</p>
+                    <ul class="solution-list">
+                        <li>refer back to it when something feels "off"</li>
+                        <li>check a section in seconds</li>
+                        <li>use it as reassurance rather than instructions</li>
+                    </ul>
+                    
+                    <p>It's meant to simplify decisions, not add more to remember.</p>
                 </div>
                 <div class="solution-visual">
-                    <div class="preview-card">
-                        <h4>Chapter 3: The 5-Second Email Test</h4>
-                        <p>"Before you click anything, run through these three quick checks. If any one fails, you know exactly what to do next..."</p>
+                    <h3>Situations this guide helps with</h3>
+                    <p>The guidance is organised around everyday moments you already recognise.</p>
+                    
+                    <p><strong>For example:</strong></p>
+                    
+                    <div class="situation-item">
+                        <h4>An email that looks genuine but creates a moment of doubt</h4>
+                        <p>Clear signs that help you decide whether it can be ignored or deserves a closer look.</p>
                     </div>
-                    <div class="preview-card">
-                        <h4>Chapter 7: Voice Clone Red Flags</h4>
-                        <p>"When a call sounds urgent and emotional, that's precisely when you slow down. Here's the verification phrase that protects you..."</p>
+                    
+                    <div class="situation-item">
+                        <h4>A phone call that feels urgent or emotional</h4>
+                        <p>Simple ways to pause, check what matters, and verify what you're being told.</p>
                     </div>
-                    <div class="preview-card">
-                        <h4>Chapter 9: Your Personal Safety System</h4>
-                        <p>"A simple daily routine that takes seconds but protects you from the most common threats..."</p>
+                    
+                    <div class="situation-item">
+                        <h4>A message asking for quick action or payment</h4>
+                        <p>How to slow the situation down and confirm what's real before responding.</p>
+                    </div>
+                    
+                    <div class="situation-item">
+                        <h4>A website requesting personal or banking details</h4>
+                        <p>Practical cues that help you judge whether a site is trustworthy.</p>
+                    </div>
+                    
+                    <div class="situation-summary">
+                        <p>Each situation is explained plainly, with:</p>
+                        <ul>
+                            <li>what usually creates uncertainty</li>
+                            <li>what's worth paying attention to</li>
+                            <li>how to decide what to do next</li>
+                        </ul>
+                        <p>The aim is to make these moments feel straightforward again.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What's Inside -->
+    <!-- How This Guide Helps -->
     <section class="inside">
         <div class="container">
             <div class="section-header">
-                <h2>What You'll Learn Inside</h2>
-                <p>Practical guidance organised by real situations you actually encounter — not theoretical threats.</p>
+                <h2>How this guide helps in practice</h2>
             </div>
-            <div class="inside-grid">
-                <div class="inside-item">
-                    <div class="number">1</div>
-                    <div>
-                        <h3>The New Landscape</h3>
-                        <p>What's actually changed, what the real risks are (and aren't), and why your instincts still matter.</p>
-                    </div>
+            
+            <div class="guide-practice">
+                <p>The guide is organised around everyday situations that create uncertainty, not technical topics.</p>
+                
+                <p>You'll find clear guidance for moments such as:</p>
+                <ul class="practice-list">
+                    <li>opening an email that doesn't feel quite right</li>
+                    <li>receiving a phone call that creates pressure to act</li>
+                    <li>being asked to confirm details or make a payment</li>
+                    <li>visiting a website that looks legitimate but gives you pause</li>
+                </ul>
+                
+                <div class="practice-approach">
+                    <p><strong>For each situation, the guide:</strong></p>
+                    <ul>
+                        <li>highlights the few signs that actually matter</li>
+                        <li>explains what can be safely ignored</li>
+                        <li>shows you how to decide what to do next</li>
+                    </ul>
                 </div>
-                <div class="inside-item">
-                    <div class="number">2</div>
-                    <div>
-                        <h3>Email & Message Safety</h3>
-                        <p>How to spot AI-crafted phishing, fake invoices, and impersonation attempts before you engage.</p>
-                    </div>
-                </div>
-                <div class="inside-item">
-                    <div class="number">3</div>
-                    <div>
-                        <h3>Phone & Voice Protection</h3>
-                        <p>Defending against cloned voices and urgent "family emergency" scams with simple verification steps.</p>
-                    </div>
-                </div>
-                <div class="inside-item">
-                    <div class="number">4</div>
-                    <div>
-                        <h3>Shopping & Banking Online</h3>
-                        <p>Safe practices for transactions, spotting fake websites, and protecting your financial information.</p>
-                    </div>
-                </div>
-                <div class="inside-item">
-                    <div class="number">5</div>
-                    <div>
-                        <h3>Social Media Savvy</h3>
-                        <p>Identifying fake profiles, AI-generated misinformation, and manipulation tactics.</p>
-                    </div>
-                </div>
-                <div class="inside-item">
-                    <div class="number">6</div>
-                    <div>
-                        <h3>Your Personal Safety System</h3>
-                        <p>Building simple habits that protect you automatically — without adding complexity to your life.</p>
-                    </div>
-                </div>
+                
+                <p>Most people read the guide once, then keep it nearby.</p>
+                
+                <p>It becomes something you can quickly check for reassurance, rather than something you need to remember or study.</p>
+                
+                <p class="practice-conclusion">The aim is to make everyday online decisions feel straightforward again.</p>
             </div>
         </div>
     </section>
@@ -1387,7 +1488,7 @@
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <blockquote>"Refreshingly straightforward. No jargon, no condescension, just clear information presented professionally. I appreciated being treated as an intelligent adult who simply needed updated knowledge."</blockquote>
+                    <blockquote>"I was worried it might be too technical, but it wasn't at all. It felt written for people who've been using the internet for years and just want to feel confident again. Calm, sensible, and reassuring."</blockquote>
                     <div class="author">
                         <div class="avatar">MH</div>
                         <div class="author-info">
@@ -1397,7 +1498,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <blockquote>"I've been online since dial-up and can usually spot trouble. But the section on voice cloning was genuinely new to me. Our family now has a verification phrase for urgent calls. Practical and worth knowing."</blockquote>
+                    <blockquote>"I didn't realise how much I was hesitating until I wasn't anymore. After reading it, I feel much more at ease opening emails and answering calls. I'm not constantly wondering if I've missed something."</blockquote>
                     <div class="author">
                         <div class="avatar">RB</div>
                         <div class="author-info">
@@ -1407,7 +1508,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <blockquote>"Having clear criteria simplified my decision-making. The checklist by my desk means I don't have to hold it all in my head. Less to remember, not more."</blockquote>
+                    <blockquote>"I was expecting lists and rules to remember. Instead, it simplified things. I know what to ignore, what to double-check, and I don't have to keep it all in my head."</blockquote>
                     <div class="author">
                         <div class="avatar">SA</div>
                         <div class="author-info">
@@ -1423,40 +1524,42 @@
     <!-- Final CTA -->
     <section class="final-cta" id="order">
         <div class="container">
-            <h2>Stay Protected in a Changing Landscape</h2>
-            <p>A single, comprehensive reference. One-time purchase. No subscriptions, no ongoing costs.</p>
+            <h2>A calm, practical reference you can rely on</h2>
+            <p>The AI Safety Brief is designed to be something you can read once and keep nearby.</p>
+            <p>It's a single, self-contained guide you can return to whenever something feels uncertain — without subscriptions, updates to manage, or ongoing costs.</p>
             <div class="price-box">
-                <h3>The AI Safety Brief</h3>
-                <div class="price-display"><span>£</span>24</div>
-                <p style="color: var(--text-light); margin-top: -10px;">One-time payment. Instant access.</p>
+                <h3>You receive:</h3>
                 <ul class="includes">
                     <li>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        Complete digital guide (PDF)
+                        A clear, practical digital guide
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        Works on any device
+                        Easy to read on any device
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        Print-friendly format
+                        Suitable for printing if you prefer paper
                     </li>
                 </ul>
+                
+                <div class="price-display"><span>£</span>24</div>
+                <p style="color: var(--text-light); margin-top: -10px;">One-time payment. Instant access after purchase.</p>
 
-                <a href="javascript:void(0)" onclick="openModal()" class="btn-primary">Get Instant Access Now</a>
+                <a href="javascript:void(0)" onclick="openModal()" class="btn-primary">Get Instant Access</a>
                 <div class="guarantee-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         <path d="M9 12l2 2 4-4"/>
                     </svg>
-                    <p><strong>30-Day Money-Back Guarantee.</strong> If the guide doesn't meet your expectations, email us for a full refund. No complications.</p>
+                    <p>You're free to take your time. If it doesn't meet your expectations, you can request a full refund within 30 days — no questions asked.</p>
                 </div>
             </div>
         </div>
@@ -1470,28 +1573,33 @@
             </div>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h3>What format is the guide?</h3>
-                    <p>You'll receive a PDF that works on any device — computer, tablet, or phone. You can also print it if you prefer reading on paper. The quick reference card is designed to be printed and kept handy.</p>
+                    <h3>Is this easy to read?</h3>
+                    <p>Yes. It's written in plain English, with short sections you can dip into. Most readers say it feels reassuring rather than instructional.</p>
                 </div>
+                <hr class="faq-divider">
                 <div class="faq-item">
-                    <h3>How long is it?</h3>
-                    <p>The guide is purposefully concise — around 45 pages of practical content. No filler. Most readers complete it in one or two sittings.</p>
+                    <h3>Do I need to be good with technology?</h3>
+                    <p>No. The guide assumes everyday internet use only — email, phone calls, shopping, and messaging. It's designed to support judgement, not teach technical skills.</p>
                 </div>
+                <hr class="faq-divider">
                 <div class="faq-item">
-                    <h3>Will this become outdated quickly?</h3>
-                    <p>The principles are timeless, but threats do evolve. That's why you'll receive free updates whenever we add new guidance. Your purchase includes all future versions.</p>
+                    <h3>How long does it take to read?</h3>
+                    <p>Most people read it in one or two sittings. You don't need to remember everything — many readers keep it nearby and refer back when something feels uncertain.</p>
                 </div>
+                <hr class="faq-divider">
                 <div class="faq-item">
-                    <h3>Is this just for computers?</h3>
-                    <p>No. The guide covers phone calls, text messages, emails, websites, and social media — anywhere AI-powered tricks might appear. It's comprehensive without being overwhelming.</p>
+                    <h3>Will this change how I use the internet?</h3>
+                    <p>No. You continue doing what you already do. The guide simply helps you recognise when something can be ignored and when it's worth taking a closer look.</p>
                 </div>
+                <hr class="faq-divider">
                 <div class="faq-item">
-                    <h3>I'm already careful online. Is this still useful?</h3>
-                    <p>Experienced users often find the most value in the newer threat categories — voice cloning, AI-generated phishing, and deepfakes — which operate differently from traditional scams. The guide builds on existing good habits with updated verification methods.</p>
+                    <h3>Is this still useful if I'm already careful?</h3>
+                    <p>Yes. Many careful users find it helps reduce second-guessing. It clarifies which concerns are worth your attention and which aren't.</p>
                 </div>
+                <hr class="faq-divider">
                 <div class="faq-item">
-                    <h3>Can I share this with my family?</h3>
-                    <p>Absolutely. Many readers discuss the key points with partners and adult children. Having everyone on the same page — especially the family verification phrase — makes everyone safer.</p>
+                    <h3>What if I decide it's not for me?</h3>
+                    <p>You're covered by a 30-day money-back guarantee. If it doesn't meet your expectations, you can request a full refund — no explanation needed.</p>
                 </div>
             </div>
         </div>
