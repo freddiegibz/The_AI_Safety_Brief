@@ -290,43 +290,36 @@
             position: relative;
         }
 
-        .book-mockup {
-            background: white;
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-            transform: rotate(2deg);
+        .author-note {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 36px;
         }
 
-        .book-cover {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 4px;
-            padding: 40px 30px;
-            color: white;
-            text-align: center;
-        }
-
-        .book-cover h3 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-
-        .book-cover p {
+        .author-note h3 {
             color: var(--accent);
-            font-size: 0.95rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
-        .book-cover .icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+        .author-note p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .author-note p:last-of-type {
+            margin-bottom: 20px;
+        }
+
+        .author-sign {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-style: normal;
         }
 
         /* Problem Section */
@@ -1314,16 +1307,12 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="book-mockup">
-                        <div class="book-cover">
-                            <div class="icon">
-                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <h3>The AI Safety Brief</h3>
-                            <p>Practical Protection for the AI Era</p>
-                        </div>
+                    <div class="author-note">
+                        <h3>Why this guide exists</h3>
+                        <p>"I wrote this after helping people close to me pause over emails, messages, and calls that didn't used to feel confusing.</p>
+                        <p>The problem wasn't carelessness — it was that the rules had changed quietly.</p>
+                        <p>This guide exists so you don't have to rely on instinct alone when something feels off."</p>
+                        <span class="author-sign">— Alfie</span>
                     </div>
                 </div>
             </div>
