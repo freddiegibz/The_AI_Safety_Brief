@@ -309,6 +309,21 @@
 
         .hero-visual {
             position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hero-product-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .hero-product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .author-note {
@@ -1334,6 +1349,9 @@
                     </div>
                 </div>
                 <div class="hero-visual">
+                    <div class="hero-product-image">
+                        <img src="productimag.jpg" alt="The AI Safety Brief">
+                    </div>
                     <div class="author-note">
                         <h3>Why this guide exists</h3>
                         <p>"I wrote this after people close to me started hesitating over emails, messages, and calls that used to feel straightforward."</p>
