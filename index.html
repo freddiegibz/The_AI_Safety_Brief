@@ -1713,9 +1713,9 @@
 
     <script>
         function openModal() {
-            // Track AddToCart on CTA click
+            // Track InitiateCheckout on CTA click
             if (typeof fbq === 'function') {
-                fbq('track', 'AddToCart', {
+                fbq('track', 'InitiateCheckout', {
                     content_name: 'AI Safety Brief',
                     value: 19.00,
                     currency: 'GBP'
